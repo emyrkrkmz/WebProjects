@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reddit - Page {{ current_page + 1 }}</title>
+    <link rel="stylesheet" href="../output/pagination.css">
+    <link rel="stylesheet" href="../output/main.css">
+</head>
+<body>
+<div class="container">
+  <div id="post-header">
+    <ul>
+      <li class="tab"><b>Posts</b></li>
+      <li class="tab">new</li>
+      <li class="tab">past</li>
+      <li class="tab">comments</li>
+      <li class="tab">ask</li>
+      <li class="tab">show</li>
+      <li class="tab">jobs</li>
+      <li class="tab">submit</li>
+      <li style="float: right; margin-right: 5px">login</li>
+    </ul>
+  </div>
+  <ol id="posts" start="{{ posts | length * current_page + 1 }}">
+  {% for p in posts %}
+    <li>
+      <div>
+        <a href="https://www.reddit.com/r/{{ p.subreddit }}/comments/{{ p.by }}/{{ p.name }}/">{{ p.name }}</a> <small>({{ p.subreddit }})</small><br>
+        <small>{{ p.votes }} votes by {{ p.by }} {{ p.date }} hour ago | <a class="hide">hide</a> | {{ p.comments }} comments</small>
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
+
+    <div class="pagination">
+
+        <a href="{{ current_page }}.html" {% if current_page == 0 %}class="hidden"{% endif %}>&laquo;</a>
+
+
+        {% for page in range(total_pages) %}
+            <a {% if page == current_page %}class="active"{% endif %}  href="{{ page + 1 }}.html">{{ page + 1 }}</a>
+        {% endfor %}
+    {% if current_page != total_pages - 1 %}
+        <a href="{{ current_page + 2 }}.html">&raquo;</a>
+    {% endif %}
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

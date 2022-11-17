@@ -1,0 +1,43 @@
+.container {
+    margin: 10px 60px 0 60px;
+    background-color: #f6f6ef;
+  }
+  #posts {
+    padding-left: 35px;
+  }
+
+  #posts > li > div {
+    color: gray;
+  }
+  #posts > li > div > a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .hide:hover {
+    text-decoration: underline;
+  }
+
+  #post-header {
+    background-color: rgb(255, 102, 0);
+  }
+
+  #post-header > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .tab{
+    float: left;
+    padding-left: 5px;
+  }
+
+  .tab::after {
+    content: ' |';
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
