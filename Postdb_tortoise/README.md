@@ -1,4 +1,4 @@
 # FOR EXECUTION
 
--> uvicorn main:app --reload --port <portnum>
+-> uvicorn main:app --reload --port portnum
 
